@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth | QuizNow</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Ambient Glow Blobs */
+        .glow-blob-tr {
+            position: absolute;
+            top: -10%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(133, 173, 255, 0.15) 0%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        .glow-blob-bl {
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(193, 128, 255, 0.15) 0%, transparent 70%);
+            filter: blur(80px);
+            pointer-events: none;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 440px;
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            z-index: 10;
+        }
+
+        .auth-header {
+            text-align: center;
+        }
+
+        .auth-logo {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Tab Switcher */
+        .tab-switcher {
+            display: flex;
+            position: relative;
+            background: var(--surface-container);
+            padding: 0.3rem;
+            border-radius: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 0.75rem;
+            border: none;
+            background: transparent;
+            color: #94a3b8;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 2;
+        }
+
+        .tab-btn.active {
+            color: #fff;
+        }
+
+        .tab-indicator {
+            position: absolute;
+            bottom: 0.3rem;
+            left: 0.3rem;
+            height: calc(100% - 0.6rem);
+            width: calc(50% - 0.3rem);
+            background: var(--surface-high);
+            border-radius: 0.5rem;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        .tab-indicator::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 20%;
+            right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        [data-tab="signup"].tab-indicator {
+            transform: translateX(100%);
+        }
+
+        /* Forms */
+        .auth-forms-container {
+            display: grid;
+            grid-template-columns: 100% 100%;
+            transition: transform 0.4s ease;
+            width: 100%;
+            overflow: visible;
+        }
+
+        .auth-card.show-signup .auth-forms-container {
+            transform: translateX(-100%);
+        }
+
+        .auth-form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            position: relative;
+        }
+
+        .input-group label {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #94a3b8;
+        }
+
+        .input-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-input {
+            width: 100%;
+            background: rgba(22, 26, 33, 0.4);
+            border: 1px solid rgba(133, 173, 255, 0.1);
+            border-radius: 0.75rem;
+            padding: 0.8rem 1rem;
+            color: #fff;
+            font-family: var(--font-body);
+            transition: var(--transition);
+        }
+
+        .auth-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 10px rgba(133, 173, 255, 0.1);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 1rem;
+            cursor: pointer;
+            color: #94a3b8;
+            font-size: 1.25rem;
+            user-select: none;
+        }
+
+        .auth-link {
+            font-size: 0.8rem;
+            color: var(--primary);
+            text-decoration: none;
+            align-self: flex-end;
+            transition: var(--transition);
+        }
+
+        .auth-link:hover {
+            color: var(--secondary);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #475569;
+            font-size: 0.8rem;
+            margin: 0.5rem 0;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .divider:not(:empty)::before {
+            margin-right: 1rem;
+        }
+
+        .divider:not(:empty)::after {
+            margin-left: 1rem;
+        }
+
+        .google-btn {
+            background: rgba(22, 26, 33, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            color: #fff;
+            display: flex;
+            gap: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .google-btn:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Validation States */
+        .input-group.error .auth-input {
+            border-color: var(--error);
+            box-shadow: 0 0 10px rgba(255, 113, 108, 0.1);
+        }
+
+        .input-group.success .auth-input {
+            border-color: var(--tertiary);
+            box-shadow: 0 0 10px rgba(142, 255, 113, 0.1);
+        }
+
+        .error-msg {
+            font-size: 0.75rem;
+            color: var(--error);
+            display: none;
+        }
+
+        .input-group.error .error-msg {
+            display: block;
+        }
+
+        /* Spinner */
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(0, 0, 0, 0.1);
+            border-top-color: #000;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+            display: none;
+        }
+
+        .btn-loading .spinner {
+            display: block;
+        }
+
+        .btn-loading .btn-text {
+            display: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Hidden Form Logic */
+        .auth-forms-wrapper {
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="glow-blob-tr"></div>
+    <div class="glow-blob-bl"></div>
+
+    <div class="glass auth-card" id="authCard">
+        <div class="auth-header">
+            <a href="index.html" class="logo gradient-text auth-logo">QuizNow</a>
+            <div class="tab-switcher">
+                <div class="tab-indicator" id="tabIndicator"></div>
+                <button class="tab-btn active" onclick="switchTab('login')">Login</button>
+                <button class="tab-btn" onclick="switchTab('signup')">Sign Up</button>
+            </div>
+        </div>
+
+        <div class="auth-forms-wrapper">
+            <div class="auth-forms-container">
+                <!-- Login Form -->
+                <form id="loginForm" class="auth-form" onsubmit="handleAuth(event, 'login')">
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" class="auth-input" placeholder="name@example.com" required>
+                        <span class="error-msg">Please enter a valid email address.</span>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" class="auth-input" placeholder="••••••••" required>
+                            <span class="material-symbols-outlined password-toggle"
+                                onclick="togglePassword(this)">visibility_off</span>
+                        </div>
+                        <a href="#" class="auth-link">Forgot Password?</a>
+                        <span class="error-msg">Incorrect password. Please try again.</span>
+                    </div>
+                    <button type="submit" class="btn btn-primary glow-hover" style="width: 100%;">
+                        <span class="btn-text">Login</span>
+                        <div class="spinner"></div>
+                    </button>
+                    <div class="divider">or continue with</div>
+                    <button type="button" class="btn google-btn glow-hover" style="width: 100%;">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="Google"
+                            style="width: 20px; height: 20px; filter: grayscale(1) invert(1);">
+                        Continue with Google
+                    </button>
+                </form>
+
+                <!-- Sign Up Form -->
+                <form id="signupForm" class="auth-form" onsubmit="handleAuth(event, 'signup')">
+                    <div class="input-group">
+                        <label>Username</label>
+                        <input type="text" class="auth-input" placeholder="Choose a username" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" class="auth-input" placeholder="name@example.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" class="auth-input" placeholder="••••••••" required>
+                            <span class="material-symbols-outlined password-toggle"
+                                onclick="togglePassword(this)">visibility_off</span>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label>Confirm Password</label>
+                        <div class="input-wrapper">
+                            <input type="password" class="auth-input" placeholder="••••••••" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary glow-hover" style="width: 100%;">
+                        <span class="btn-text">Create Account</span>
+                        <div class="spinner"></div>
+                    </button>
+                    <div class="divider">or continue with</div>
+                    <button type="button" class="btn google-btn glow-hover" style="width: 100%;">
+                        <img src="https://www.gstatic.com/images/branding/product/1x/gsa_512dp.png" alt="Google"
+                            style="width: 20px; height: 20px; filter: grayscale(1) invert(1);">
+                        Continue with Google
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            const card = document.getElementById('authCard');
+            const indicator = document.getElementById('tabIndicator');
+            const btns = document.querySelectorAll('.tab-btn');
+
+            if (tab === 'login') {
+                card.classList.remove('show-signup');
+                indicator.style.transform = 'translateX(0)';
+                btns[0].classList.add('active');
+                btns[1].classList.remove('active');
+            } else {
+                card.classList.add('show-signup');
+                indicator.style.transform = 'translateX(100%)';
+                btns[1].classList.add('active');
+                btns[0].classList.remove('active');
+            }
+        }
+
+        function togglePassword(icon) {
+            const input = icon.previousElementSibling;
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.textContent = 'visibility';
+            } else {
+                input.type = 'password';
+                icon.textContent = 'visibility_off';
+            }
+        }
+
+        function handleAuth(event, type) {
+            event.preventDefault();
+            const form = event.target;
+            const btn = form.querySelector('button[type="submit"]');
+
+            // Success simulation
+            btn.classList.add('btn-loading');
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // Simulate session storage
+                localStorage.setItem('quiznow_session', JSON.stringify({
+                    isLoggedIn: true,
+                    user: type === 'signup' ? form.querySelectorAll('input')[0].value : 'Guest User',
+                    lvl: 1,
+                    pts: 0
+                }));
+
+                // Redirect
+                window.location.href = 'index.html';
+            }, 1500);
+        }
+    </script>
+</body>
+
+</html>

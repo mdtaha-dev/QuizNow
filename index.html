@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
 
 </head>
 
@@ -19,8 +19,8 @@
         <div class="container header-content">
             <a href="#" class="logo gradient-text">QuizNow</a>
             <div class="auth-buttons">
-                <button class="btn btn-ghost">Login</button>
-                <button class="btn btn-primary glow-hover">Sign Up</button>
+                <a href="auth.html" class="btn btn-ghost">Login</a>
+                <a href="auth.html" class="btn btn-primary glow-hover">Sign Up</a>
             </div>
             <!-- Alternative Logged In State (hidden by default in this demo structure) -->
             <div class="user-stats" style="display: none;">
@@ -75,7 +75,7 @@
             <!-- Side Card 1 -->
             <div class="glass bento-card side-card glow-hover">
                 <div class="card-content">
-                    <div style="font-size: 2rem;">🎬</div>
+                    <div class="icon-box"><span class="material-symbols-outlined">movie</span></div>
                     <h3 class="card-title">Cinema Buff</h3>
                     <p class="card-desc">From Hollywood classics to indie gems.</p>
                     <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
@@ -88,7 +88,7 @@
             <!-- Side Card 2 -->
             <div class="glass bento-card side-card glow-hover">
                 <div class="card-content">
-                    <div style="font-size: 2rem;">💻</div>
+                    <div class="icon-box"><span class="material-symbols-outlined">terminal</span></div>
                     <h3 class="card-title">Code Master</h3>
                     <p class="card-desc">Syntax, logic, and patterns.</p>
                     <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
@@ -131,7 +131,7 @@
                     </div>
                 </div>
                 <div class="glass badge-card">
-                    <div class="badge-icon">🏆</div>
+                    <div class="badge-icon"><span class="material-symbols-outlined" style="font-size: 3rem;">military_tech</span></div>
                     <h3 style="font-family: var(--font-headlines); color: var(--secondary);">Top 1%</h3>
                     <p style="font-size: 0.8rem; color: #94a3b8;">Intellectual Elite</p>
                 </div>
@@ -140,22 +140,22 @@
     </main>
 
     <div class="side-nav-cluster">
-        <button class="side-btn" title="Leaderboard">📊</button>
-        <button class="side-btn" title="Achievements">🏅</button>
-        <button class="side-btn" title="Settings">⚙️</button>
+        <button class="side-btn" title="Leaderboard"><span class="material-symbols-outlined">leaderboard</span></button>
+        <button class="side-btn" title="Achievements"><span class="material-symbols-outlined">workspace_premium</span></button>
+        <button class="side-btn" title="Settings"><span class="material-symbols-outlined">settings</span></button>
     </div>
 
     <nav class="bottom-nav">
         <a href="#" class="nav-item active">
-            <span>🏠</span>
+            <span class="material-symbols-outlined">home</span>
             <span>Home</span>
         </a>
         <a href="#" class="nav-item">
-            <span>📊</span>
+            <span class="material-symbols-outlined">equalizer</span>
             <span>Ranks</span>
         </a>
         <a href="#" class="nav-item">
-            <span>👤</span>
+            <span class="material-symbols-outlined">person</span>
             <span>Profile</span>
         </a>
     </nav>
@@ -163,6 +163,15 @@
     <script>
         // Interactivity
         document.addEventListener('DOMContentLoaded', () => {
+            // Session Check
+            const session = JSON.parse(localStorage.getItem('quiznow_session'));
+            if (session && session.isLoggedIn) {
+                document.querySelector('.auth-buttons').style.display = 'none';
+                const userStats = document.querySelector('.user-stats');
+                userStats.style.display = 'flex';
+                userStats.querySelector('span').textContent = `LVL ${session.lvl || 1} • ${session.pts || 0} PTS`;
+            }
+
             // Category Chips Selection
             const chips = document.querySelectorAll('.chip');
             chips.forEach(chip => {

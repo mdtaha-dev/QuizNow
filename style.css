@@ -49,6 +49,22 @@ body {
     transform: translateY(-2px);
 }
 
+.icon-box {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(133, 173, 255, 0.1);
+    border-radius: 0.75rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
+
+.icon-box .material-symbols-outlined {
+    font-size: 24px;
+}
+
 /* --- LAYOUT --- */
 .container {
     max-width: 1200px;
