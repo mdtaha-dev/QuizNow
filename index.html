@@ -8,193 +8,699 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
-
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+        rel="stylesheet">
 </head>
 
 <body>
 
-    <header>
+    <!-- Header -->
+    <header id="main-header">
         <div class="container header-content">
-            <a href="#" class="logo gradient-text">QuizNow</a>
-            <div class="auth-buttons">
-                <a href="auth.html" class="btn btn-ghost">Login</a>
-                <a href="auth.html" class="btn btn-primary glow-hover">Sign Up</a>
-            </div>
-            <!-- Alternative Logged In State (hidden by default in this demo structure) -->
-            <div class="user-stats" style="display: none;">
-                <span>LVL 12 • 4580 PTS</span>
-                <div class="avatar"></div>
+            <a href="#" onclick="showView('home'); return false;" class="logo gradient-text">QuizNow</a>
+            <nav class="desktop-nav hidden" id="desktop-nav">
+                <a href="#" class="nav-link" data-view="home" onclick="showView('home'); return false;">Home</a>
+                <a href="#" class="nav-link" data-view="leaderboard"
+                    onclick="showView('leaderboard'); return false;">Leaderboard</a>
+                <a href="#" class="nav-link" data-view="profile"
+                    onclick="showView('profile'); return false;">Profile</a>
+            </nav>
+            <div class="header-right">
+                <div class="auth-buttons" id="auth-buttons">
+                    <button class="btn btn-ghost" onclick="showView('auth'); switchAuthTab('login')">Login</button>
+                    <button class="btn btn-primary glow-hover" onclick="showView('auth'); switchAuthTab('signup')">Sign
+                        Up</button>
+                </div>
+                <div class="user-info hidden" id="user-info">
+                    <span class="user-pts" id="header-pts">LVL 1 &bull; 0 PTS</span>
+                    <div class="header-avatar" id="header-avatar" onclick="showView('profile')" style="cursor:pointer">
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <main class="container">
-        <section class="hero">
-            <div class="glow-blob"></div>
-            <h1>The <span class="gradient-text">QuizNow</span> Challenge</h1>
-            <p>Test your knowledge. Climb the ranks. Prove your intellect.</p>
-            <button class="btn btn-primary btn-large glow-hover">Start Quiz</button>
-        </section>
+    <main>
 
-        <section class="filters">
-            <div class="category-scroll">
-                <div class="chip glass active">All Topics</div>
-                <div class="chip glass">Tech</div>
-                <div class="chip glass">Movies</div>
-                <div class="chip glass">General Knowledge</div>
-                <div class="chip glass">Science</div>
-                <div class="chip glass">History</div>
-            </div>
-            <div class="difficulty-toggle glass">
-                <button class="toggle-btn active" data-difficulty="easy">Easy</button>
-                <button class="toggle-btn" data-difficulty="medium">Medium</button>
-                <button class="toggle-btn" data-difficulty="hard">Hard</button>
-            </div>
-        </section>
+        <!-- HOME VIEW -->
+        <section id="home-view" class="view">
+            <div class="glow-blob blob-primary blob-tr"></div>
+            <div class="glow-blob blob-secondary blob-bl"></div>
 
-        <section class="bento-grid">
-            <!-- Featured Card -->
-            <div class="glass bento-card featured-card glow-hover"
-                style="background-image: linear-gradient(to top, rgba(11, 20, 30, 0.9), transparent), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&q=80&w=1200');">
-                <div class="card-content">
-                    <span class="badge badge-tertiary">Featured</span>
-                    <h2 class="card-title">Quantum Mechanics 101</h2>
-                    <p class="card-desc">Dive into the microscopic world of atoms and subatomic particles. Will you
-                        master the uncertainty?</p>
-                    <div class="avatars-group">
-                        <div class="avatar-sm" style="background: #2a3a4a"></div>
-                        <div class="avatar-sm" style="background: #3a4a5a"></div>
-                        <div class="avatar-sm" style="background: #4a5a6a"></div>
-                        <div class="avatar-sm" style="background: #5a6a7a"></div>
+            <div class="container">
+                <div class="hero">
+                    <div class="hero-badge">
+                        <span class="material-symbols-outlined">bolt</span>
+                        Live Challenges Available
                     </div>
+                    <h1>The <span class="gradient-text">QuizNow</span><br>Challenge</h1>
+                    <p>Test your knowledge. Climb the ranks. Prove your intellect across science, tech, history and
+                        beyond.</p>
+                    <button class="btn btn-primary btn-large glow-hover" onclick="startQuizFromHome()">
+                        <span class="material-symbols-outlined">play_arrow</span>
+                        Start Quiz
+                    </button>
                 </div>
-            </div>
 
-            <!-- Side Card 1 -->
-            <div class="glass bento-card side-card glow-hover">
-                <div class="card-content">
-                    <div class="icon-box"><span class="material-symbols-outlined">movie</span></div>
-                    <h3 class="card-title">Cinema Buff</h3>
-                    <p class="card-desc">From Hollywood classics to indie gems.</p>
-                    <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
-                        <span class="badge badge-primary">Medium</span>
-                        <span style="font-size: 0.8rem; color: var(--primary);">Avg: 85%</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Side Card 2 -->
-            <div class="glass bento-card side-card glow-hover">
-                <div class="card-content">
-                    <div class="icon-box"><span class="material-symbols-outlined">terminal</span></div>
-                    <h3 class="card-title">Code Master</h3>
-                    <p class="card-desc">Syntax, logic, and patterns.</p>
-                    <div style="margin-top: auto; display: flex; justify-content: space-between; align-items: center;">
-                        <span class="badge badge-primary">Hard</span>
-                        <span style="font-size: 0.8rem; color: var(--primary);">Avg: 62%</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Wide Bottom Card -->
-            <div class="glass bento-card wide-card glow-hover">
-                <div class="card-content">
-                    <span class="badge badge-tertiary">Live Now</span>
-                    <h2 class="card-title">Weekly Live Challenge</h2>
-                    <p class="card-desc">Join 1,240 others competing for the Top Spot.</p>
-                </div>
-                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
-                    <div style="font-family: var(--font-headlines); font-size: 1.5rem; color: var(--secondary);">
-                        04:22:15</div>
-                    <button class="btn btn-primary" style="padding: 0.5rem 2rem;">Play</button>
-                </div>
-            </div>
-        </section>
-
-        <section class="achievements">
-            <div class="glass achievement-panel">
-                <div class="achievement-info">
-                    <h2 style="font-family: var(--font-headlines); font-size: 2rem; margin-bottom: 0.5rem;">Elevate your
-                        rank through exploration.</h2>
-                    <p style="color: #94a3b8;">You're on a 15-day streak! Keep going to unlock the Legend Badge.</p>
-                    <div class="streak-container">
-                        <div
-                            style="display: flex; justify-content: space-between; font-size: 0.85rem; font-weight: 600;">
-                            <span>Streak Progress</span>
-                            <span>75%</span>
+                <div class="filters">
+                    <div class="filter-row">
+                        <div class="filter-label">Category</div>
+                        <div class="category-scroll" id="category-chips">
+                            <div class="chip active" data-cat="all">All Topics</div>
+                            <div class="chip" data-cat="science">Science</div>
+                            <div class="chip" data-cat="gaming">Gaming</div>
+                            <div class="chip" data-cat="tech">Tech</div>
                         </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill"></div>
+                    </div>
+                    <div class="filter-row">
+                        <div class="filter-label">Difficulty</div>
+                        <div class="difficulty-toggle" id="difficulty-toggle">
+                            <button class="toggle-btn active" data-diff="easy">Easy</button>
+                            <button class="toggle-btn" data-diff="medium">Medium</button>
+                            <button class="toggle-btn" data-diff="hard">Hard</button>
                         </div>
                     </div>
                 </div>
-                <div class="glass badge-card">
-                    <div class="badge-icon"><span class="material-symbols-outlined" style="font-size: 3rem;">military_tech</span></div>
-                    <h3 style="font-family: var(--font-headlines); color: var(--secondary);">Top 1%</h3>
-                    <p style="font-size: 0.8rem; color: #94a3b8;">Intellectual Elite</p>
+
+                <div class="bento-grid">
+                    <!-- Quantum -->
+                    <div class="glass bento-card featured-card glow-hover" data-cat="science"
+                        onclick="setCategory('science'); startQuizFromHome()">
+
+                        <div class="featured-overlay"></div>
+                        <div class="featured-content">
+                            <span class="badge badge-tertiary">Featured</span>
+                            <h2 class="card-title">Quantum Mechanics &amp; Future Tech</h2>
+                            <p class="card-desc">Navigate qubits, superposition, and the next era of digital processing.
+                            </p>
+                            <div class="featured-meta">
+                                <div class="participant-stack">
+                                    <div class="part-dot"></div>
+                                    <div class="part-dot"></div>
+                                    <div class="part-dot"></div>
+                                    <span>+12k players</span>
+                                </div>
+                                <span class="material-symbols-outlined arrow-icon">arrow_forward</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Movies -->
+                    <div class="glass bento-card side-card glow-hover bg-cinema" data-cat="movies"
+                        style="min-height:220px" onclick="setCategory('movies'); startQuizFromHome()">
+
+                        <h3 class="card-title-sm">Cinematic Universes</h3>
+                        <p class="card-desc-sm">From hidden cameos to lore-deep secrets of the silver screen.</p>
+                        <div class="card-foot">
+                            <span class="badge badge-tertiary">Easy</span>
+                            <span class="card-avg">84% Avg</span>
+                        </div>
+                    </div>
+
+                    <!-- Code -->
+                    <div class="glass bento-card side-card glow-hover bg-code" data-cat="tech" style="min-height:220px"
+                        onclick="setCategory('tech'); startQuizFromHome()">
+                        <h3 class="card-title-sm">Code Master</h3>
+                        <p class="card-desc-sm">Syntax, logic, data structures, and algorithmic patterns.</p>
+                        <div class="card-foot">
+                            <span class="badge badge-error">Hard</span>
+                            <span class="card-avg">62% Avg</span>
+                        </div>
+                    </div>
+
+                    <!-- Cybersecurity -->
+                    <div class="glass bento-card side-card glow-hover bg-cyber" data-cat="tech" style="min-height:220px"
+                        onclick="setCategory('cybersecurity'); startQuizFromHome()">
+                        <h3 class="card-title-sm">Cybersecurity</h3>
+                        <p class="card-desc-sm">Encryption, exploits, ethical hacking and digital defence.</p>
+                        <div class="card-foot">
+                            <span class="badge badge-error">Hard</span>
+                            <span class="card-avg">58% Avg</span>
+                        </div>
+                    </div>
+
+                    <!-- Gaming -->
+                    <div class="glass bento-card side-card glow-hover bg-gaming" data-cat="gaming"
+                        style="min-height:220px" onclick="setCategory('gaming'); startQuizFromHome()">
+                        <h3 class="card-title-sm">Gaming</h3>
+                        <p class="card-desc-sm">From retro classics to modern open worlds and esports lore.</p>
+                        <div class="card-foot">
+                            <span class="badge badge-tertiary">Easy</span>
+                            <span class="card-avg">79% Avg</span>
+                        </div>
+                    </div>
+
+                    <!-- Wide Card -->
+                    <div class="glass bento-card wide-card glow-hover" data-cat="all">
+                        <div class="wide-card-info">
+                            <span class="badge badge-tertiary">Live Now</span>
+                            <h3 class="card-title-sm" style="margin-top:0.75rem">Weekly Live Challenge</h3>
+                            <p class="card-desc-sm">Join 1,240 others competing for the Top Spot.</p>
+                        </div>
+                        <div class="wide-card-right">
+                            <div class="live-timer">
+                                <div class="gradient-text live-time" id="live-countdown">04:22:15</div>
+                                <div class="live-label">Time Remaining</div>
+                            </div>
+                            <button class="btn btn-primary" onclick="startQuizFromHome()">
+                                <span class="material-symbols-outlined">rocket_launch</span>
+                                Join Lobby
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievement Strip -->
+                <div class="glass achievement-strip">
+                    <div class="achievement-left">
+                        <div class="ach-tag">
+                            <span class="material-symbols-outlined">workspace_premium</span>
+                            Master Stratum Status
+                        </div>
+                        <h2 class="ach-headline">Elevate your rank through exploration.</h2>
+                        <p class="ach-sub">Every correct answer builds your score. Reach LVL 10 to unlock the Hard tier
+                            challenges.</p>
+                    </div>
+                    <div class="achievement-right">
+                        <div class="streak-info">
+                            <div class="streak-row">
+                                <span class="streak-label">Current Streak</span>
+                                <span class="streak-val" id="home-streak">0 Days</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-bar-fill" id="home-streak-bar" style="width:0%"></div>
+                            </div>
+                        </div>
+                        <div class="glass top-badge-card">
+                            <span class="material-symbols-outlined top-badge-icon">military_tech</span>
+                            <div>
+                                <div class="top-badge-title" id="home-rank-label">Start playing</div>
+                                <div class="top-badge-sub">to earn your rank</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- ========== AUTH VIEW ========== -->
+        <section id="auth-view" class="view hidden auth-section">
+            <div class="glow-blob blob-primary blob-tr"></div>
+            <div class="glow-blob blob-secondary blob-bl"></div>
+            <div class="auth-card glass-high" id="authCard">
+                <div class="auth-logo-wrap">
+                    <div class="logo gradient-text" style="font-size:2rem">QuizNow</div>
+                    <p class="auth-tagline">Your intellect. Your rank. Your legacy.</p>
+                </div>
+                <div class="tab-switcher">
+                    <div class="tab-indicator" id="tabIndicator"></div>
+                    <button class="tab-btn active" onclick="switchAuthTab('login')">Login</button>
+                    <button class="tab-btn" onclick="switchAuthTab('signup')">Sign Up</button>
+                </div>
+                <div class="auth-forms-wrapper">
+                    <div class="auth-forms-container" id="authFormsContainer">
+                        <!-- Login Form -->
+                        <form id="loginForm" class="auth-form" onsubmit="handleAuth(event,'login')">
+                            <div class="input-group" id="login-email-group">
+                                <label>Email Address</label>
+                                <div class="input-wrapper">
+                                    <span class="material-symbols-outlined input-icon">mail</span>
+                                    <input type="email" class="auth-input" id="login-email"
+                                        placeholder="name@example.com" required>
+                                </div>
+                                <span class="error-msg" id="login-email-err">Please enter a valid email.</span>
+                            </div>
+                            <div class="input-group" id="login-pass-group">
+                                <label>Password</label>
+                                <div class="input-wrapper">
+                                    <span class="material-symbols-outlined input-icon">lock</span>
+                                    <input type="password" class="auth-input" id="login-pass"
+                                        placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required>
+                                    <span class="material-symbols-outlined password-toggle"
+                                        onclick="togglePassword(this)">visibility_off</span>
+                                </div>
+                                <a href="#" class="auth-link" style="align-self:flex-end">Forgot Password?</a>
+                                <span class="error-msg" id="login-pass-err">Incorrect password.</span>
+                            </div>
+                            <div class="auth-error-banner hidden" id="login-banner">
+                                <span class="material-symbols-outlined">error</span>
+                                <span id="login-banner-msg">Invalid credentials.</span>
+                            </div>
+                            <button type="submit" class="btn btn-primary glow-hover btn-full">
+                                <span class="btn-text">Login</span>
+                                <div class="spinner"></div>
+                            </button>
+                            <div class="divider">or continue with</div>
+                            <button type="button" class="btn btn-google btn-full" onclick="handleGoogleAuth()">
+                                <span class="material-symbols-outlined">account_circle</span>
+                                Continue with Google
+                            </button>
+                        </form>
+                        <!-- Signup Form -->
+                        <form id="signupForm" class="auth-form" onsubmit="handleAuth(event,'signup')">
+                            <div class="input-group" id="signup-user-group">
+                                <label>Username</label>
+                                <div class="input-wrapper">
+                                    <span class="material-symbols-outlined input-icon">person</span>
+                                    <input type="text" class="auth-input" id="signup-user"
+                                        placeholder="Choose a username" required minlength="3">
+                                </div>
+                                <span class="error-msg" id="signup-user-err">Username must be at least 3
+                                    characters.</span>
+                            </div>
+                            <div class="input-group" id="signup-email-group">
+                                <label>Email Address</label>
+                                <div class="input-wrapper">
+                                    <span class="material-symbols-outlined input-icon">mail</span>
+                                    <input type="email" class="auth-input" id="signup-email"
+                                        placeholder="name@example.com" required>
+                                </div>
+                                <span class="error-msg" id="signup-email-err">Please enter a valid email.</span>
+                            </div>
+                            <div class="input-group" id="signup-pass-group">
+                                <label>Password</label>
+                                <div class="input-wrapper">
+                                    <span class="material-symbols-outlined input-icon">lock</span>
+                                    <input type="password" class="auth-input" id="signup-pass"
+                                        placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required
+                                        minlength="6">
+                                    <span class="material-symbols-outlined password-toggle"
+                                        onclick="togglePassword(this)">visibility_off</span>
+                                </div>
+                                <span class="error-msg" id="signup-pass-err">Password must be at least 6
+                                    characters.</span>
+                            </div>
+                            <div class="input-group" id="signup-confirm-group">
+                                <label>Confirm Password</label>
+                                <div class="input-wrapper">
+                                    <span class="material-symbols-outlined input-icon">lock_reset</span>
+                                    <input type="password" class="auth-input" id="signup-confirm"
+                                        placeholder="&bull;&bull;&bull;&bull;&bull;&bull;&bull;&bull;" required>
+                                    <span class="material-symbols-outlined password-toggle"
+                                        onclick="togglePassword(this)">visibility_off</span>
+                                </div>
+                                <span class="error-msg" id="signup-confirm-err">Passwords do not match.</span>
+                            </div>
+                            <div class="auth-error-banner hidden" id="signup-banner">
+                                <span class="material-symbols-outlined">error</span>
+                                <span id="signup-banner-msg">Something went wrong.</span>
+                            </div>
+                            <button type="submit" class="btn btn-primary glow-hover btn-full">
+                                <span class="btn-text">Create Account</span>
+                                <div class="spinner"></div>
+                            </button>
+                            <div class="divider">or continue with</div>
+                            <button type="button" class="btn btn-google btn-full" onclick="handleGoogleAuth()">
+                                <span class="material-symbols-outlined">account_circle</span>
+                                Continue with Google
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== QUIZ VIEW ========== -->
+        <section id="quiz-view" class="view hidden quiz-section">
+            <div class="container quiz-container-wrap">
+                <div class="glass-high quiz-container">
+                    <div class="glow-blob blob-primary"
+                        style="top:-200px;right:-200px;width:400px;height:400px;opacity:0.3"></div>
+                    <div class="glow-blob blob-secondary"
+                        style="bottom:-200px;left:-200px;width:400px;height:400px;opacity:0.3"></div>
+
+                    <!-- Top Bar -->
+                    <div class="quiz-top-bar">
+                        <button class="exit-btn" onclick="toggleExitModal(true)">
+                            <span class="material-symbols-outlined">close</span>
+                        </button>
+                        <div class="progress-info">
+                            <div class="progress-labels">
+                                <span id="progress-text">Question 1 of 10</span>
+                                <span id="progress-pct" class="gradient-text">10%</span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-bar-fill" id="progress-bar" style="width:10%"></div>
+                            </div>
+                        </div>
+                        <div class="timer-pill" id="timer-pill">
+                            <span class="material-symbols-outlined">timer</span>
+                            <span id="timer-text">30s</span>
+                        </div>
+                    </div>
+
+                    <!-- Score display -->
+                    <div class="quiz-score-row">
+                        <div class="score-chip">
+                            <span class="material-symbols-outlined">stars</span>
+                            <span id="live-score">0 pts</span>
+                        </div>
+                        <div class="streak-chip" id="streak-chip">
+                            <span class="material-symbols-outlined">local_fire_department</span>
+                            <span id="live-streak">0 streak</span>
+                        </div>
+                    </div>
+
+                    <!-- Question -->
+                    <div class="question-block">
+                        <div class="question-category-tag" id="question-cat-tag">General</div>
+                        <div class="question-text" id="question-display">Loading question...</div>
+                    </div>
+
+                    <!-- Options -->
+                    <div class="options-grid" id="options-grid"></div>
+
+                    <!-- Explanation -->
+                    <div class="explanation-panel" id="explanation-panel">
+                        <div class="explanation-header">
+                            <span class="material-symbols-outlined">lightbulb</span>
+                            <strong>Explanation</strong>
+                        </div>
+                        <p class="explanation-text" id="explanation-text"></p>
+                    </div>
+
+                    <!-- Footer -->
+                    <div class="quiz-footer">
+                        <div class="bonus-text">
+                            <span class="material-symbols-outlined">bolt</span>
+                            Answer in under 15s for bonus points!
+                        </div>
+                        <button class="btn btn-primary glow-hover" id="next-btn" onclick="nextQuestion()" disabled>
+                            Next Question
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== RESULTS VIEW ========== -->
+        <section id="results-view" class="view hidden">
+            <div class="glow-blob blob-primary blob-tr"></div>
+            <div class="glow-blob blob-secondary blob-bl"></div>
+            <div class="container">
+                <div class="results-layout">
+                    <!-- Main Column -->
+                    <div class="results-main">
+                        <!-- Hero Score Card -->
+                        <div class="glass-high results-hero">
+                            <div class="donut-wrap">
+                                <div class="donut-ring" id="donut-ring">
+                                    <div class="donut-inner">
+                                        <span class="donut-pct" id="donut-pct">0%</span>
+                                        <span class="donut-label">Accuracy</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="results-hero-info">
+                                <h1 class="results-title" id="results-title">Quiz Complete!</h1>
+                                <p class="results-subtitle" id="results-subtitle">Here's how you did.</p>
+                                <div class="results-chips">
+                                    <div class="result-chip">
+                                        <span class="result-chip-val" id="res-time">0s</span>
+                                        <span class="result-chip-label">Time</span>
+                                    </div>
+                                    <div class="result-chip">
+                                        <span class="result-chip-val" id="res-correct"
+                                            style="color:var(--tertiary)">0/10</span>
+                                        <span class="result-chip-label">Correct</span>
+                                    </div>
+                                    <div class="result-chip">
+                                        <span class="result-chip-val" id="res-streak"
+                                            style="color:var(--secondary)">0</span>
+                                        <span class="result-chip-label">Best Streak</span>
+                                    </div>
+                                    <div class="result-chip">
+                                        <span class="result-chip-val" id="res-pts"
+                                            style="color:var(--primary)">+0</span>
+                                        <span class="result-chip-label">Points Earned</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Per-question Review -->
+                        <div class="review-header">
+                            <h2 class="section-title"><span class="material-symbols-outlined">analytics</span>
+                                Performance Review</h2>
+                            <span class="review-sub">All questions analyzed</span>
+                        </div>
+                        <div id="review-list" class="review-list"></div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="results-sidebar">
+                        <!-- Leaderboard -->
+                        <div class="glass-high sidebar-card">
+                            <div class="sidebar-card-header">
+                                <h3>Global Rankings</h3>
+                                <span class="material-symbols-outlined">leaderboard</span>
+                            </div>
+                            <div id="results-leaderboard-list" class="mini-lb-list"></div>
+                            <button class="btn btn-secondary btn-full" style="margin-top:1.5rem"
+                                onclick="showView('leaderboard')">
+                                View Full Rankings
+                            </button>
+                        </div>
+
+                        <!-- Restart Card -->
+                        <div class="restart-card">
+                            <div class="restart-card-inner glass-high">
+                                <span class="material-symbols-outlined restart-icon">rocket_launch</span>
+                                <h3 class="restart-title">Ready to Ascend?</h3>
+                                <p class="restart-sub">Beat your score and climb the ranks.</p>
+                                <button class="btn btn-primary glow-hover btn-full btn-large" onclick="restartQuiz()">
+                                    <span class="material-symbols-outlined">replay</span>
+                                    Restart Quiz
+                                </button>
+                                <button class="btn btn-ghost btn-full" onclick="showView('home')"
+                                    style="margin-top:0.75rem">
+                                    Back to Home
+                                </button>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== LEADERBOARD VIEW ========== -->
+        <section id="leaderboard-view" class="view hidden">
+            <div class="glow-blob blob-primary blob-tr"></div>
+            <div class="container">
+                <div class="leaderboard-header">
+                    <h1><span class="gradient-text">Global Leaderboard</span></h1>
+                    <p>Top minds across the QuizNow universe</p>
+                </div>
+
+                <!-- Podium -->
+                <div class="podium-container" id="podium-container"></div>
+
+                <div class="lb-body">
+                    <!-- Rankings Table -->
+                    <div class="glass-high rankings-panel">
+                        <div class="rankings-table-wrap">
+                            <table class="rankings-table">
+                                <thead>
+                                    <tr>
+                                        <th>Rank</th>
+                                        <th>Player</th>
+                                        <th>Score</th>
+                                        <th>Accuracy</th>
+                                        <th>Streak</th>
+                                        <th>Category</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="lb-table-body"></tbody>
+                            </table>
+                        </div>
+                        <div class="load-more-wrap">
+                            <button class="btn btn-secondary" onclick="loadMoreLeaderboard()">Load More</button>
+                        </div>
+                    </div>
+
+                    <!-- Personal Stats -->
+                    <aside class="glass-high personal-stats">
+                        <h3 class="sidebar-card-title">Your Stats</h3>
+                        <div class="ps-item">
+                            <span class="ps-label">Global Rank</span>
+                            <span class="ps-val gradient-text" id="ps-rank">#--</span>
+                        </div>
+                        <div class="ps-item">
+                            <span class="ps-label">Total Score</span>
+                            <span class="ps-val" id="ps-score">0</span>
+                        </div>
+                        <div class="ps-item">
+                            <span class="ps-label">Best Streak</span>
+                            <span class="ps-val" id="ps-streak">0</span>
+                        </div>
+                        <div class="ps-item">
+                            <span class="ps-label">Quizzes Done</span>
+                            <span class="ps-val" id="ps-count">0</span>
+                        </div>
+                        <div class="ps-milestone">
+                            <span class="ps-label">Next Milestone</span>
+                            <div class="progress-track" style="margin-top:0.75rem">
+                                <div class="progress-bar-fill" id="ps-milestone-bar" style="width:0%"></div>
+                            </div>
+                            <div class="milestone-labels">
+                                <span>Current</span>
+                                <span>Pro Level</span>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-full" style="margin-top:1.5rem"
+                            onclick="showView('profile')">
+                            View Profile
+                        </button>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========== PROFILE VIEW ========== -->
+        <section id="profile-view" class="view hidden">
+            <div class="glow-blob blob-primary blob-tr"></div>
+            <div class="glow-blob blob-secondary blob-bl"></div>
+            <div class="container">
+                <!-- Profile Hero -->
+                <div class="glass-high profile-hero">
+                    <div class="profile-avatar-lg" id="profile-avatar-lg"></div>
+                    <div class="profile-details">
+                        <h1 class="profile-name" id="profile-name">Username</h1>
+                        <div class="profile-lvl-row">
+                            <span class="lvl-badge" id="profile-lvl-badge">LVL 1</span>
+                            <div class="xp-bar-wrap">
+                                <div class="xp-labels">
+                                    <span id="xp-cur">0 XP</span>
+                                    <span id="xp-max">5000 XP</span>
+                                </div>
+                                <div class="progress-track">
+                                    <div class="progress-bar-fill" id="xp-bar" style="width:0%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profile-meta-row">
+                            <span class="meta-chip"><span class="material-symbols-outlined">calendar_today</span><span
+                                    id="profile-join">Joined March 2026</span></span>
+                            <span class="meta-chip"><span class="material-symbols-outlined">quiz</span><span
+                                    id="profile-quiz-count">0 Quizzes</span></span>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="btn btn-secondary btn-sm">
+                            <span class="material-symbols-outlined">edit</span> Edit Profile
+                        </button>
+                        <button class="btn btn-ghost btn-sm logout-btn" onclick="toggleLogoutModal(true)">
+                            <span class="material-symbols-outlined">logout</span> Logout
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Stats Grid -->
+                <div class="stats-grid">
+                    <div class="glass-high stat-card">
+                        <span class="stat-val primary-val" id="p-total-score">0</span>
+                        <span class="stat-lbl">Total Score</span>
+                    </div>
+                    <div class="glass-high stat-card">
+                        <span class="stat-val secondary-val" id="p-accuracy">0%</span>
+                        <span class="stat-lbl">Accuracy</span>
+                    </div>
+                    <div class="glass-high stat-card">
+                        <span class="stat-val tertiary-val" id="p-streak">0</span>
+                        <span class="stat-lbl">Best Streak</span>
+                    </div>
+                    <div class="glass-high stat-card">
+                        <span class="stat-val gold-val" id="p-rank">#--</span>
+                        <span class="stat-lbl">Global Rank</span>
+                    </div>
+                </div>
+
+                <!-- Achievements -->
+                <h3 class="section-title">
+                    <span class="material-symbols-outlined">military_tech</span> Achievements
+                </h3>
+                <div class="achievements-row" id="achievements-list"></div>
+
+                <!-- Quiz History -->
+                <h3 class="section-title" style="margin-top:3rem">
+                    <span class="material-symbols-outlined">history</span> Quiz History
+                </h3>
+                <div class="glass-high history-panel">
+                    <div id="history-list"></div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <div class="side-nav-cluster">
-        <button class="side-btn" title="Leaderboard"><span class="material-symbols-outlined">leaderboard</span></button>
-        <button class="side-btn" title="Achievements"><span class="material-symbols-outlined">workspace_premium</span></button>
-        <button class="side-btn" title="Settings"><span class="material-symbols-outlined">settings</span></button>
-    </div>
-
-    <nav class="bottom-nav">
-        <a href="#" class="nav-item active">
+    <!-- BOTTOM NAV (mobile) -->
+    <nav class="bottom-nav" id="bottom-nav">
+        <a href="#" class="nav-item" data-view="home" onclick="showView('home'); return false;">
             <span class="material-symbols-outlined">home</span>
             <span>Home</span>
         </a>
-        <a href="#" class="nav-item">
-            <span class="material-symbols-outlined">equalizer</span>
+        <a href="#" class="nav-item" data-view="leaderboard" onclick="showView('leaderboard'); return false;">
+            <span class="material-symbols-outlined">leaderboard</span>
             <span>Ranks</span>
         </a>
-        <a href="#" class="nav-item">
+        <a href="#" class="nav-item" data-view="profile" onclick="showView('profile'); return false;">
             <span class="material-symbols-outlined">person</span>
             <span>Profile</span>
         </a>
     </nav>
 
-    <script>
-        // Interactivity
-        document.addEventListener('DOMContentLoaded', () => {
-            // Session Check
-            const session = JSON.parse(localStorage.getItem('quiznow_session'));
-            if (session && session.isLoggedIn) {
-                document.querySelector('.auth-buttons').style.display = 'none';
-                const userStats = document.querySelector('.user-stats');
-                userStats.style.display = 'flex';
-                userStats.querySelector('span').textContent = `LVL ${session.lvl || 1} • ${session.pts || 0} PTS`;
-            }
+    <!-- SIDE NAV (desktop) -->
+    <div class="side-nav" id="side-nav">
+        <button class="side-btn" title="Home" onclick="showView('home')"><span
+                class="material-symbols-outlined">home</span></button>
+        <button class="side-btn" title="Leaderboard" onclick="showView('leaderboard')"><span
+                class="material-symbols-outlined">leaderboard</span></button>
+        <button class="side-btn" title="Profile" onclick="showView('profile')"><span
+                class="material-symbols-outlined">person</span></button>
+        <button class="side-btn" title="Exit Quiz" onclick="toggleExitModal(true)"><span
+                class="material-symbols-outlined">logout</span></button>
+    </div>
 
-            // Category Chips Selection
-            const chips = document.querySelectorAll('.chip');
-            chips.forEach(chip => {
-                chip.addEventListener('click', () => {
-                    chips.forEach(c => c.classList.remove('active'));
-                    chip.classList.add('active');
-                });
-            });
+    <!-- EXIT MODAL -->
+    <div class="modal-overlay hidden" id="exit-modal">
+        <div class="glass-high modal-box">
+            <span class="material-symbols-outlined modal-icon" style="color:var(--error)">warning</span>
+            <h2 class="modal-title">Quit Quiz?</h2>
+            <p class="modal-desc">Your progress will be lost. Are you sure?</p>
+            <div class="modal-actions">
+                <button class="btn btn-ghost" onclick="toggleExitModal(false)">Keep Playing</button>
+                <button class="btn btn-primary" onclick="exitQuiz()"
+                    style="background:var(--error);box-shadow:0 4px 15px rgba(255,113,108,0.3)">Exit Quiz</button>
+            </div>
+        </div>
+    </div>
 
-            // Difficulty Toggle
-            const toggleBtns = document.querySelectorAll('.toggle-btn');
-            toggleBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    toggleBtns.forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    console.log(`Difficulty set to: ${btn.dataset.difficulty}`);
-                });
-            });
+    <!-- LOGOUT MODAL -->
+    <div class="modal-overlay hidden" id="logout-modal">
+        <div class="glass-high modal-box">
+            <span class="material-symbols-outlined modal-icon" style="color:var(--error)">logout</span>
+            <h2 class="modal-title">Sign Out?</h2>
+            <p class="modal-desc">Are you sure you want to logout of QuizNow?</p>
+            <div class="modal-actions">
+                <button class="btn btn-ghost" onclick="toggleLogoutModal(false)">Cancel</button>
+                <button class="btn btn-primary" onclick="handleLogout()"
+                    style="background:var(--error);box-shadow:0 4px 15px rgba(255,113,108,0.3)">Logout</button>
+            </div>
+        </div>
+    </div>
 
-            // Button Hover Glow Effect (Extra micro-animation logic if needed)
-            // CSS handles most of it, but we could add dynamic shadow following mouse here
-        });
-    </script>
+    <!-- TOAST -->
+    <div class="toast hidden" id="toast">
+        <span class="material-symbols-outlined" id="toast-icon">check_circle</span>
+        <span id="toast-msg">Success!</span>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
