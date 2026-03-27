@@ -190,6 +190,406 @@ const QUESTIONS = [
         options: ["Oxygen", "Carbon Dioxide", "Nitrogen", "Argon"],
         correct: 2,
         explanation: "Nitrogen makes up approximately 78% of Earth's atmosphere, followed by oxygen at 21%. Despite being essential to life, nitrogen is relatively inert in its atmospheric form (N2)."
+    },
+    {
+        id: 25,
+        category: "Science",
+        question: "Which scientist is best known for developing the theory of General Relativity?",
+        options: ["Isaac Newton", "Niels Bohr", "Albert Einstein", "Stephen Hawking"],
+        correct: 2,
+        explanation: "Albert Einstein published the theory of General Relativity in 1915, which describes gravity not as a force, but as a consequence of the curvature of spacetime."
+    },
+    {
+        id: 26,
+        category: "Science",
+        question: "What is the absolute zero temperature on the Celsius scale?",
+        options: ["0°C", "-100°C", "-273.15°C", "-459.67°C"],
+        correct: 2,
+        explanation: "Absolute zero is the lowest possible temperature where all molecular motion ceases. It is defined as 0 Kelvin or approximately -273.15° Celsius."
+    },
+    {
+        id: 27,
+        category: "Science",
+        question: "Which organelle is often referred to as the 'powerhouse' of the cell?",
+        options: ["Nucleus", "Ribosome", "Mitochondria", "Endoplasmic Reticulum"],
+        correct: 2,
+        explanation: "Mitochondria generate most of the cell's supply of adenosine triphosphate (ATP), used as a source of chemical energy."
+    },
+    {
+        id: 28,
+        category: "Science",
+        question: "Which planet is colloquially known as the 'Red Planet'?",
+        options: ["Venus", "Mars", "Jupiter", "Saturn"],
+        correct: 1,
+        explanation: "Mars is called the Red Planet because of the iron oxide (rust) on its surface, which gives it a reddish appearance."
+    },
+    {
+        id: 29,
+        category: "Science",
+        question: "What is the most common chemical element in the universe?",
+        options: ["Oxygen", "Carbon", "Helium", "Hydrogen"],
+        correct: 3,
+        explanation: "Hydrogen is the simplest and most abundant element, making up roughly 75% of all baryonic mass in the universe."
+    },
+    {
+        id: 30,
+        category: "Science",
+        question: "What is the largest organ in the human body?",
+        options: ["Liver", "Brain", "Skin", "Small Intestine"],
+        correct: 2,
+        explanation: "The skin is the body's largest organ, serving as a protective barrier and aiding in temperature regulation and sensation."
+    },
+    {
+        id: 31,
+        category: "Science",
+        question: "The study of fungi is known as what?",
+        options: ["Botany", "Mycology", "Phycology", "Entomology"],
+        correct: 1,
+        explanation: "Mycology is the branch of biology concerned with the study of fungi, including their genetic and biochemical properties."
+    },
+    {
+        id: 32,
+        category: "Science",
+        question: "Who formulated the Law of Universal Gravitation and the Laws of Motion?",
+        options: ["Galileo Galilei", "Johannes Kepler", "Isaac Newton", "Michael Faraday"],
+        correct: 2,
+        explanation: "Sir Isaac Newton's 'Philosophiæ Naturalis Principia Mathematica', published in 1687, laid the foundations for classical mechanics."
+    },
+    {
+        id: 33,
+        category: "Science",
+        question: "What is the approximate speed of sound at sea level and 20°C?",
+        options: ["300 m/s", "343 m/s", "400 m/s", "1000 m/s"],
+        correct: 1,
+        explanation: "The speed of sound in dry air at 20°C (68°F) is approximately 343 metres per second, though it varies with temperature and medium."
+    },
+    {
+        id: 34,
+        category: "Science",
+        question: "Who is credited with the creation of the first Periodic Table of Elements?",
+        options: ["Marie Curie", "Antoine Lavoisier", "Dmitri Mendeleev", "John Dalton"],
+        correct: 2,
+        explanation: "Dmitri Mendeleev published the first widely recognized periodic table in 1869, arranging elements by atomic mass and predicting properties of undiscovered elements."
+    },
+    {
+        id: 35,
+        category: "Movies",
+        question: "Who directed the 1994 cult classic film 'Pulp Fiction'?",
+        options: ["Martin Scorsese", "Quentin Tarantino", "David Fincher", "Steven Spielberg"],
+        correct: 1,
+        explanation: "Quentin Tarantino wrote and directed Pulp Fiction, known for its non-linear narrative, stylized dialogue, and ironic mix of humor and violence."
+    },
+    {
+        id: 36,
+        category: "Movies",
+        question: "Which actor won an Academy Award for his role as Vito Corleone in 'The Godfather'?",
+        options: ["Al Pacino", "Robert De Niro", "Marlon Brando", "James Caan"],
+        correct: 2,
+        explanation: "Marlon Brando won the Best Actor Oscar for his performance in The Godfather (1972), though he famously refused to accept the award in person."
+    },
+    {
+        id: 37,
+        category: "Movies",
+        question: "What was the first feature-length animated movie ever released?",
+        options: ["Pinocchio", "Fantasia", "Snow White and the Seven Dwarfs", "Bambi"],
+        correct: 2,
+        explanation: "Walt Disney's Snow White and the Seven Dwarfs (1937) was the first full-length cel animated feature film in movie history."
+    },
+    {
+        id: 38,
+        category: "Movies",
+        question: "In the movie 'The Matrix', what color pill does Neo take to 'see how deep the rabbit hole goes'?",
+        options: ["Blue", "Red", "Green", "Yellow"],
+        correct: 1,
+        explanation: "Morpheus offers Neo a choice: the blue pill (return to simulated reality) or the red pill (escape the Matrix and see the truth). Neo takes the red pill."
+    },
+    {
+        id: 39,
+        category: "Movies",
+        question: "Which iconic sci-fi movie features the famous line 'I'll be back'?",
+        options: ["Predator", "RoboCop", "The Terminator", "Total Recall"],
+        correct: 2,
+        explanation: "The line was first delivered by Arnold Schwarzenegger in James Cameron's The Terminator (1984) and became a hallmark of his career."
+    },
+    {
+        id: 40,
+        category: "Movies",
+        question: "Who won the Oscar for Best Actor for his role in the 2019 film 'Joker'?",
+        options: ["Heath Ledger", "Joaquin Phoenix", "Christian Bale", "Jack Nicholson"],
+        correct: 1,
+        explanation: "Joaquin Phoenix won his first Academy Award for his portrayal of Arthur Fleck in Todd Phillips' Joker (2019)."
+    },
+    {
+        id: 41,
+        category: "Movies",
+        question: "On which desert planet is the majority of the 2021 film 'Dune' set?",
+        options: ["Tatooine", "Arrakis", "Pandora", "Mustafar"],
+        correct: 1,
+        explanation: "Arrakis, also known as Dune, is the only source of the spice melange, making it the most valuable planet in the universe."
+    },
+    {
+        id: 42,
+        category: "Movies",
+        question: "Which director is responsible for 'Interstellar' and 'The Dark Knight' trilogy?",
+        options: ["Christopher Nolan", "Denis Villeneuve", "Ridley Scott", "James Cameron"],
+        correct: 0,
+        explanation: "Christopher Nolan is known for his complex narratives and grand-scale filmmaking, directing hits like Inception, Interstellar, and the Dark Knight trilogy."
+    },
+    {
+        id: 43,
+        category: "Movies",
+        question: "What was the very first movie to win the Academy Award for Best Picture?",
+        options: ["Sunrise", "The Jazz Singer", "Wings", "Broadway Melody"],
+        correct: 2,
+        explanation: "Wings (1927), a silent film about World War I pilots, was the first movie to win the 'Outstanding Picture' award at the inaugural Oscars in 1929."
+    },
+    {
+        id: 44,
+        category: "Movies",
+        question: "What is the name of the fictional Scandinavian kingdom in the movie 'Frozen'?",
+        options: ["Arendelle", "Corona", "DunBroch", "Agrabah"],
+        correct: 0,
+        explanation: "The kingdom of Arendelle is the setting for the Frozen films, inspired by the landscape and culture of Norway."
+    },
+    {
+        id: 45,
+        category: "Tech",
+        question: "Who is widely considered the primary inventor of the World Wide Web?",
+        options: ["Bill Gates", "Steve Jobs", "Tim Berners-Lee", "Vint Cerf"],
+        correct: 2,
+        explanation: "Sir Tim Berners-Lee invented the World Wide Web in 1989 while working at CERN, including the first browser and server."
+    },
+    {
+        id: 46,
+        category: "Tech",
+        question: "What does 'HTML' stand for in web development?",
+        options: ["HyperText Markup Language", "High-level Transfer Main Logic", "Hyperlink Text Management Lib", "Hyper-Responsive Target Meta Language"],
+        correct: 0,
+        explanation: "HyperText Markup Language (HTML) is the standard markup language for documents designed to be displayed in a web browser."
+    },
+    {
+        id: 47,
+        category: "Tech",
+        question: "Which tech giant originally developed the Android operating system before it was acquired by Google?",
+        options: ["Samsung", "Android Inc.", "Nokia", "Motorola"],
+        correct: 1,
+        explanation: "Android Inc. was founded in 2003 and acquired by Google in 2005. The first commercial Android phone was released in 2008."
+    },
+    {
+        id: 48,
+        category: "Tech",
+        question: "In which year was the first original iPhone released by Apple?",
+        options: ["2005", "2006", "2007", "2008"],
+        correct: 2,
+        explanation: "Steve Jobs introduced the first iPhone on January 9, 2007, often cited as the device that revolutionized the smartphone industry."
+    },
+    {
+        id: 49,
+        category: "Tech",
+        question: "What does 'GPU' stand for in computing?",
+        options: ["General Processing Unit", "Graphics Processing Unit", "Geographic Positional Unit", "Global Power Utility"],
+        correct: 1,
+        explanation: "A Graphics Processing Unit (GPU) is a specialized electronic circuit designed to rapidly manipulate and alter memory to accelerate image creation."
+    },
+    {
+        id: 50,
+        category: "Tech",
+        question: "What is the primary purpose of 'Blockchain' technology?",
+        options: ["Faster Video Streaming", "Decentralized Ledger of Transactions", "Enhanced CPU Speed", "Cloud Data Storage Only"],
+        correct: 1,
+        explanation: "Blockchain is a distributed ledger technology that allows data to be stored globally across thousands of servers, ensuring transparency and security."
+    },
+    {
+        id: 51,
+        category: "Tech",
+        question: "What was the name of the first computer virus, created in the early 1970s?",
+        options: ["ILOVEYOU", "Creeper", "Melissa", "Brain"],
+        correct: 1,
+        explanation: "The Creeper virus was an experimental self-replicating program that moved across the ARPANET, displaying the message: 'I'M THE CREEPER: CATCH ME IF YOU CAN!'"
+    },
+    {
+        id: 52,
+        category: "Tech",
+        question: "Who co-founded Apple Computer alongside Steve Jobs in 1976?",
+        options: ["Steve Ballmer", "Steve Wozniak", "Paul Allen", "Larry Page"],
+        correct: 1,
+        explanation: "Steve 'Woz' Wozniak designed and hand-built the Apple I, the company's first computer, while Steve Jobs handled the marketing and business side."
+    },
+    {
+        id: 53,
+        category: "Tech",
+        question: "What does 'RAM' stand for?",
+        options: ["Read Access Memory", "Random Access Memory", "Remote Allocation Module", "Rapid Active Matrix"],
+        correct: 1,
+        explanation: "Random Access Memory (RAM) is a form of computer data storage that allows data items to be read or written in almost the same amount of time irrespective of the physical location of data inside the memory."
+    },
+    {
+        id: 54,
+        category: "Tech",
+        question: "Who is the creator of the Linux kernel?",
+        options: ["Richard Stallman", "Linus Torvalds", "Ken Thompson", "Dennis Ritchie"],
+        correct: 1,
+        explanation: "Linus Torvalds began developing the Linux kernel in 1991 as a personal project, which evolved into the most widely used open-source operating system kernel."
+    },
+    {
+        id: 55,
+        category: "Cybersecurity",
+        question: "Which term describes a fraudulent attempt to obtain sensitive information like passwords by disguising as a trustworthy entity in electronic communication?",
+        options: ["Sniffing", "Phishing", "Spoofing", "Dumping"],
+        correct: 1,
+        explanation: "Phishing typically uses email or malicious websites to trick users into revealing login credentials or financial information."
+    },
+    {
+        id: 56,
+        category: "Cybersecurity",
+        question: "In the context of 'SQL Injection', what does 'SQL' stand for?",
+        options: ["Structured Query Language", "Secure Quantum Logic", "Systematic Quality Layer", "Serial Query Link"],
+        correct: 0,
+        explanation: "SQL (Structured Query Language) is used to manage databases. An injection attack occurs when malicious SQL statements are inserted into entry fields for execution."
+    },
+    {
+        id: 57,
+        category: "Cybersecurity",
+        question: "What color 'hat' is used to describe ethical hackers who use their skills to find vulnerabilities and help organizations secure their systems?",
+        options: ["Black Hat", "Grey Hat", "White Hat", "Red Hat"],
+        correct: 2,
+        explanation: "White Hat hackers are security experts who use their abilities for legal and ethical purposes, often through bug bounty programs or security audits."
+    },
+    {
+        id: 58,
+        category: "Cybersecurity",
+        question: "What is the name of the symmetric-key block cipher that is the U.S. government standard and used worldwide to protect sensitive data?",
+        options: ["DES", "Blowfish", "AES", "RSA"],
+        correct: 2,
+        explanation: "AES (Advanced Encryption Standard) was established in 2001. It is extremely secure and is the standard for modern encryption."
+    },
+    {
+        id: 59,
+        category: "Cybersecurity",
+        question: "What is a 'Honey Pot' in network security?",
+        options: ["A secure backup server", "A decoy system to trap intruders", "A firewall configuration tool", "A method of password cracking"],
+        correct: 1,
+        explanation: "A honeypot is a security mechanism set up to attract and detect attackers, allowing security teams to study their methods without risking the real network."
+    },
+    {
+        id: 60,
+        category: "Cybersecurity",
+        question: "Which security principle states that a user should be given only the minimum levels of access necessary to perform their job functions?",
+        options: ["Need to Know", "Separation of Duties", "Principle of Least Privilege", "Defense in Depth"],
+        correct: 2,
+        explanation: "Least Privilege reduces the 'attack surface' — if an account is compromised, the attacker only has access to a limited set of resources."
+    },
+    {
+        id: 61,
+        category: "Cybersecurity",
+        question: "What does 'MFA' stand for in account security?",
+        options: ["Main Frame Access", "Multi-Factor Authentication", "Mandatory File Allocation", "Master File Authorization"],
+        correct: 1,
+        explanation: "MFA requires two or more pieces of evidence (factors) to verify a user's identity, such as a password plus a code from an app or SMS."
+    },
+    {
+        id: 62,
+        category: "Cybersecurity",
+        question: "Which protocol is the secure version of FTP, used to provide secure file transfer functionalities over a reliable data stream?",
+        options: ["SFTP", "HTTP", "SNMP", "TELNET"],
+        correct: 0,
+        explanation: "SFTP (SSH File Transfer Protocol) provides file access, transfer, and management over an encrypted Secure Shell (SSH) connection."
+    },
+    {
+        id: 63,
+        category: "Cybersecurity",
+        question: "What type of malware is designed to block access up to a computer system or its data until a sum of money is paid?",
+        options: ["Adware", "Ransomware", "Spyware", "Trojan"],
+        correct: 1,
+        explanation: "Ransomware typically encrypts files. Notable examples include WannaCry and REvil, which have caused billions in damages globally."
+    },
+    {
+        id: 64,
+        category: "Cybersecurity",
+        question: "What is the primary function of a network Firewall?",
+        options: ["To speed up network traffic", "To store website cache", "To monitor and control incoming/outgoing traffic", "To generate IP addresses"],
+        correct: 2,
+        explanation: "A firewall acts as a barrier between a trusted network and untrusted networks (like the internet), based on predetermined security rules."
+    },
+    {
+        id: 65,
+        category: "Gaming",
+        question: "In the game 'Portal', which phrase became a famous internet meme?",
+        options: ["The end is near", "The cake is a lie", "GLaDOS is watching", "Zero sum game"],
+        correct: 1,
+        explanation: "Found scribbled on walls by a previous test subject, 'The cake is a lie' warns the player that the promised reward is a deception by the AI GLaDOS."
+    },
+    {
+        id: 66,
+        category: "Gaming",
+        question: "Who is the legendary Japanese game designer behind 'Super Mario', 'The Legend of Zelda', and 'Donkey Kong'?",
+        options: ["Hideo Kojima", "Shigeru Miyamoto", "Satoshi Tajiri", "Hideki Kamiya"],
+        correct: 1,
+        explanation: "Shigeru Miyamoto is one of the most influential game designers in history, often called the 'father of modern video games' for his work at Nintendo."
+    },
+    {
+        id: 67,
+        category: "Gaming",
+        question: "What is the name of the Witcher protagonist in Sapkowski's books and CD Projekt Red's games?",
+        options: ["Vesemir", "Lambert", "Geralt of Rivia", "Eskel"],
+        correct: 2,
+        explanation: "Geralt of Rivia, also known as the 'White Wolf' or 'Butcher of Blaviken', is the main character of The Witcher series."
+    },
+    {
+        id: 68,
+        category: "Gaming",
+        question: "In the original 'Pac-Man', what is the name of the red ghost who chases Pac-Man most directly?",
+        options: ["Pinky", "Inky", "Clyde", "Blinky"],
+        correct: 3,
+        explanation: "Blinky (red) is the leader and follows Pac-Man directly. Pinky (pink) tries to get in front of him, Inky (cyan) is erratic, and Clyde (orange) is cowardly."
+    },
+    {
+        id: 69,
+        category: "Gaming",
+        question: "Which home console currently holds the record for being the best-selling of all time?",
+        options: ["Wii", "Nintendo Switch", "PlayStation 2", "PlayStation 4"],
+        correct: 2,
+        explanation: "The PlayStation 2 has sold over 155 million units worldwide since its launch in 2000, narrowly beating the Nintendo DS and Switch for the top spot."
+    },
+    {
+        id: 70,
+        category: "Gaming",
+        question: "In 'Grand Theft Auto V', what is the name of the fictional city inspired by Los Angeles?",
+        options: ["Liberty City", "Vice City", "Los Santos", "San Fierro"],
+        correct: 2,
+        explanation: "Los Santos is the primary setting of GTA V and GTA San Andreas, serving as a satire of modern-day Los Angeles and Southern California."
+    },
+    {
+        id: 71,
+        category: "Gaming",
+        question: "Which iconic RPG series features the 'Vault Boy' mascot and takes place in a post-nuclear wasteland?",
+        options: ["Borderlands", "Fallout", "The Elder Scrolls", "Mass Effect"],
+        correct: 1,
+        explanation: "The Fallout series, created by Interplay and later taken over by Bethesda, is known for its 1950s 'atompunk' aesthetic and wasteland survival."
+    },
+    {
+        id: 72,
+        category: "Gaming",
+        question: "In what year did Blizzard Entertainment release the massively successful MMORPG 'World of Warcraft'?",
+        options: ["2002", "2004", "2006", "2008"],
+        correct: 1,
+        explanation: "World of Warcraft (WoW) launched in November 2004, becoming the most popular MMORPG in the world and significantly impacting pop culture."
+    },
+    {
+        id: 73,
+        category: "Gaming",
+        question: "Who is the main protagonist and treasure hunter in the 'Tomb Raider' series?",
+        options: ["Nathan Drake", "Lara Croft", "Elena Fisher", "Chloe Frazer"],
+        correct: 1,
+        explanation: "Lara Croft first appeared in 1996 and has since become one of the most recognizable female characters in all of gaming."
+    },
+    {
+        id: 74,
+        category: "Gaming",
+        question: "Which Japanese studio developed the 'Souls' series (Demon's Souls, Dark Souls) and 'Elden Ring'?",
+        options: ["Capcom", "FromSoftware", "PlatinumGames", "Square Enix"],
+        correct: 1,
+        explanation: "FromSoftware, led by Hidetaka Miyazaki, is famous for creating the 'Soulslike' genre, known for high difficulty and environmental storytelling."
     }
 ];
 

@@ -74,136 +74,131 @@
                             <div class="chip" data-cat="science">Science</div>
                             <div class="chip" data-cat="gaming">Gaming</div>
                             <div class="chip" data-cat="tech">Tech</div>
+                            <div class="chip" data-cat="movies">Movies</div>
+                            <div class="chip" data-cat="cybersecurity">Cybersecurity</div>
                         </div>
                     </div>
-                    <div class="filter-row">
-                        <div class="filter-label">Difficulty</div>
-                        <div class="difficulty-toggle" id="difficulty-toggle">
-                            <button class="toggle-btn active" data-diff="easy">Easy</button>
-                            <button class="toggle-btn" data-diff="medium">Medium</button>
-                            <button class="toggle-btn" data-diff="hard">Hard</button>
+                </div>
+            </div>
+
+            <div class="bento-grid">
+                <!-- Quantum -->
+                <div class="glass bento-card featured-card glow-hover" data-cat="science"
+                    onclick="setCategory('science'); startQuizFromHome()">
+
+                    <div class="featured-overlay"></div>
+                    <div class="featured-content">
+                        <span class="badge badge-tertiary">Featured</span>
+                        <h2 class="card-title">Quantum Mechanics &amp; Future Tech</h2>
+                        <p class="card-desc">Navigate qubits, superposition, and the next era of digital processing.
+                        </p>
+                        <div class="featured-meta">
+                            <div class="participant-stack">
+                                <div class="part-dot"></div>
+                                <div class="part-dot"></div>
+                                <div class="part-dot"></div>
+                                <span>+12k players</span>
+                            </div>
+                            <span class="material-symbols-outlined arrow-icon">arrow_forward</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="bento-grid">
-                    <!-- Quantum -->
-                    <div class="glass bento-card featured-card glow-hover" data-cat="science"
-                        onclick="setCategory('science'); startQuizFromHome()">
+                <!-- Movies -->
+                <div class="glass bento-card side-card glow-hover bg-cinema" data-cat="movies" style="min-height:220px"
+                    onclick="setCategory('movies'); startQuizFromHome()">
 
-                        <div class="featured-overlay"></div>
-                        <div class="featured-content">
-                            <span class="badge badge-tertiary">Featured</span>
-                            <h2 class="card-title">Quantum Mechanics &amp; Future Tech</h2>
-                            <p class="card-desc">Navigate qubits, superposition, and the next era of digital processing.
-                            </p>
-                            <div class="featured-meta">
-                                <div class="participant-stack">
-                                    <div class="part-dot"></div>
-                                    <div class="part-dot"></div>
-                                    <div class="part-dot"></div>
-                                    <span>+12k players</span>
-                                </div>
-                                <span class="material-symbols-outlined arrow-icon">arrow_forward</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Movies -->
-                    <div class="glass bento-card side-card glow-hover bg-cinema" data-cat="movies"
-                        style="min-height:220px" onclick="setCategory('movies'); startQuizFromHome()">
-
-                        <h3 class="card-title-sm">Cinematic Universes</h3>
-                        <p class="card-desc-sm">From hidden cameos to lore-deep secrets of the silver screen.</p>
-                        <div class="card-foot">
-                            <span class="badge badge-tertiary">Easy</span>
-                            <span class="card-avg">84% Avg</span>
-                        </div>
-                    </div>
-
-                    <!-- Code -->
-                    <div class="glass bento-card side-card glow-hover bg-code" data-cat="tech" style="min-height:220px"
-                        onclick="setCategory('tech'); startQuizFromHome()">
-                        <h3 class="card-title-sm">Code Master</h3>
-                        <p class="card-desc-sm">Syntax, logic, data structures, and algorithmic patterns.</p>
-                        <div class="card-foot">
-                            <span class="badge badge-error">Hard</span>
-                            <span class="card-avg">62% Avg</span>
-                        </div>
-                    </div>
-
-                    <!-- Cybersecurity -->
-                    <div class="glass bento-card side-card glow-hover bg-cyber" data-cat="tech" style="min-height:220px"
-                        onclick="setCategory('cybersecurity'); startQuizFromHome()">
-                        <h3 class="card-title-sm">Cybersecurity</h3>
-                        <p class="card-desc-sm">Encryption, exploits, ethical hacking and digital defence.</p>
-                        <div class="card-foot">
-                            <span class="badge badge-error">Hard</span>
-                            <span class="card-avg">58% Avg</span>
-                        </div>
-                    </div>
-
-                    <!-- Gaming -->
-                    <div class="glass bento-card side-card glow-hover bg-gaming" data-cat="gaming"
-                        style="min-height:220px" onclick="setCategory('gaming'); startQuizFromHome()">
-                        <h3 class="card-title-sm">Gaming</h3>
-                        <p class="card-desc-sm">From retro classics to modern open worlds and esports lore.</p>
-                        <div class="card-foot">
-                            <span class="badge badge-tertiary">Easy</span>
-                            <span class="card-avg">79% Avg</span>
-                        </div>
-                    </div>
-
-                    <!-- Wide Card -->
-                    <div class="glass bento-card wide-card glow-hover" data-cat="all">
-                        <div class="wide-card-info">
-                            <span class="badge badge-tertiary">Live Now</span>
-                            <h3 class="card-title-sm" style="margin-top:0.75rem">Weekly Live Challenge</h3>
-                            <p class="card-desc-sm">Join 1,240 others competing for the Top Spot.</p>
-                        </div>
-                        <div class="wide-card-right">
-                            <div class="live-timer">
-                                <div class="gradient-text live-time" id="live-countdown">04:22:15</div>
-                                <div class="live-label">Time Remaining</div>
-                            </div>
-                            <button class="btn btn-primary" onclick="startQuizFromHome()">
-                                <span class="material-symbols-outlined">rocket_launch</span>
-                                Join Lobby
-                            </button>
-                        </div>
+                    <h3 class="card-title-sm">Cinematic Universes</h3>
+                    <p class="card-desc-sm">From hidden cameos to lore-deep secrets of the silver screen.</p>
+                    <div class="card-foot">
+                        <span class="badge badge-tertiary">Easy</span>
+                        <span class="card-avg">84% Avg</span>
                     </div>
                 </div>
 
-                <!-- Achievement Strip -->
-                <div class="glass achievement-strip">
-                    <div class="achievement-left">
-                        <div class="ach-tag">
-                            <span class="material-symbols-outlined">workspace_premium</span>
-                            Master Stratum Status
-                        </div>
-                        <h2 class="ach-headline">Elevate your rank through exploration.</h2>
-                        <p class="ach-sub">Every correct answer builds your score. Reach LVL 10 to unlock the Hard tier
-                            challenges.</p>
+                <!-- Code -->
+                <div class="glass bento-card side-card glow-hover bg-code" data-cat="tech" style="min-height:220px"
+                    onclick="setCategory('tech'); startQuizFromHome()">
+                    <h3 class="card-title-sm">Code Master</h3>
+                    <p class="card-desc-sm">Syntax, logic, data structures, and algorithmic patterns.</p>
+                    <div class="card-foot">
+                        <span class="badge badge-error">Hard</span>
+                        <span class="card-avg">62% Avg</span>
                     </div>
-                    <div class="achievement-right">
-                        <div class="streak-info">
-                            <div class="streak-row">
-                                <span class="streak-label">Current Streak</span>
-                                <span class="streak-val" id="home-streak">0 Days</span>
-                            </div>
-                            <div class="progress-track">
-                                <div class="progress-bar-fill" id="home-streak-bar" style="width:0%"></div>
-                            </div>
+                </div>
+
+                <!-- Cybersecurity -->
+                <div class="glass bento-card side-card glow-hover bg-cyber" data-cat="cybersecurity" style="min-height:220px"
+                    onclick="setCategory('cybersecurity'); startQuizFromHome()">
+                    <h3 class="card-title-sm">Cybersecurity</h3>
+                    <p class="card-desc-sm">Encryption, exploits, ethical hacking and digital defence.</p>
+                    <div class="card-foot">
+                        <span class="badge badge-error">Hard</span>
+                        <span class="card-avg">58% Avg</span>
+                    </div>
+                </div>
+
+                <!-- Gaming -->
+                <div class="glass bento-card side-card glow-hover bg-gaming" data-cat="gaming" style="min-height:220px"
+                    onclick="setCategory('gaming'); startQuizFromHome()">
+                    <h3 class="card-title-sm">Gaming</h3>
+                    <p class="card-desc-sm">From retro classics to modern open worlds and esports lore.</p>
+                    <div class="card-foot">
+                        <span class="badge badge-tertiary">Easy</span>
+                        <span class="card-avg">79% Avg</span>
+                    </div>
+                </div>
+
+                <!-- Wide Card -->
+                <div class="glass bento-card wide-card glow-hover" data-cat="all">
+                    <div class="wide-card-info">
+                        <span class="badge badge-tertiary">Live Now</span>
+                        <h3 class="card-title-sm" style="margin-top:0.75rem">Weekly Live Challenge</h3>
+                        <p class="card-desc-sm">Join 1,240 others competing for the Top Spot.</p>
+                    </div>
+                    <div class="wide-card-right">
+                        <div class="live-timer">
+                            <div class="gradient-text live-time" id="live-countdown">04:22:15</div>
+                            <div class="live-label">Time Remaining</div>
                         </div>
-                        <div class="glass top-badge-card">
-                            <span class="material-symbols-outlined top-badge-icon">military_tech</span>
-                            <div>
-                                <div class="top-badge-title" id="home-rank-label">Start playing</div>
-                                <div class="top-badge-sub">to earn your rank</div>
-                            </div>
+                        <button class="btn btn-primary" onclick="startQuizFromHome()">
+                            <span class="material-symbols-outlined">rocket_launch</span>
+                            Join Lobby
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Achievement Strip -->
+            <div class="glass achievement-strip">
+                <div class="achievement-left">
+                    <div class="ach-tag">
+                        <span class="material-symbols-outlined">workspace_premium</span>
+                        Master Stratum Status
+                    </div>
+                    <h2 class="ach-headline">Elevate your rank through exploration.</h2>
+                    <p class="ach-sub">Every correct answer builds your score. Reach LVL 10 to unlock the Hard tier
+                        challenges.</p>
+                </div>
+                <div class="achievement-right">
+                    <div class="streak-info">
+                        <div class="streak-row">
+                            <span class="streak-label">Current Streak</span>
+                            <span class="streak-val" id="home-streak">0 Days</span>
+                        </div>
+                        <div class="progress-track">
+                            <div class="progress-bar-fill" id="home-streak-bar" style="width:0%"></div>
+                        </div>
+                    </div>
+                    <div class="glass top-badge-card">
+                        <span class="material-symbols-outlined top-badge-icon">military_tech</span>
+                        <div>
+                            <div class="top-badge-title" id="home-rank-label">Start playing</div>
+                            <div class="top-badge-sub">to earn your rank</div>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </section>
 
