@@ -419,7 +419,7 @@ header {
 
 .hero h1 {
     font-family: var(--font-head);
-    font-size: clamp(2.8rem, 8vw, 5rem);
+    font-size: clamp(2.2rem, 10vw, 5rem);
     font-weight: 800;
     line-height: 1.05;
     letter-spacing: -0.03em;
@@ -465,7 +465,9 @@ header {
     gap: 0.6rem;
     overflow-x: auto;
     scrollbar-width: none;
-    padding: 0.25rem;
+    padding: 0.25rem 1.5rem;
+    margin: 0 -1.5rem;
+    -webkit-overflow-scrolling: touch;
 }
 
 .category-scroll::-webkit-scrollbar {
@@ -744,8 +746,6 @@ header {
     flex-direction: column;
     gap: 1.25rem;
 }
-
-.streak-info {}
 
 .streak-row {
     display: flex;
@@ -1303,6 +1303,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -1326,7 +1327,10 @@ header {
     align-items: start;
 }
 
-.results-main {}
+.results-main {
+    min-width: 0;
+    /* Prevent flex overflow */
+}
 
 /* Results Hero */
 .results-hero {
@@ -1668,9 +1672,6 @@ header {
     vertical-align: middle;
     margin-left: 0.3rem;
 }
-
-/* Restart Card */
-.restart-card {}
 
 .restart-card-inner {
     padding: 2rem;
@@ -2580,8 +2581,8 @@ header {
         width: 100%;
     }
 
-    #home-view {
-        padding-bottom: 5rem;
+    .view-section {
+        padding-bottom: 6.5rem !important;
     }
 }
 
@@ -2610,7 +2611,7 @@ header {
     }
 
     .quiz-container {
-        padding: 1.5rem;
+        padding: 1.5rem 1.5rem 2.5rem;
     }
 
     .results-hero {
@@ -2668,6 +2669,73 @@ header {
 
     .modal-actions {
         flex-direction: column;
+    }
+
+    /* Small screens (< 480px) */
+    @media (max-width: 480px) {
+        .hero {
+            padding: 5rem 0 3rem;
+        }
+
+        .hero-badge {
+            font-size: 0.7rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .header-avatar {
+            width: 34px;
+            height: 34px;
+            font-size: 0.75rem;
+        }
+
+        .user-pts {
+            display: none;
+            /* Hide points on very small screens to save space */
+        }
+
+        .logo {
+            font-size: 1.3rem;
+        }
+
+        .filter-row {
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .category-scroll {
+            width: 100vw;
+            padding: 0.25rem 1rem;
+            margin: 0 -1rem;
+        }
+
+        .results-hero {
+            padding: 1.5rem;
+            gap: 1.5rem;
+        }
+
+        .donut-ring {
+            width: 120px;
+            height: 120px;
+        }
+
+        .donut-inner {
+            width: 80px;
+            height: 80px;
+        }
+
+        .stat-card {
+            padding: 1.25rem;
+        }
+
+        .stat-val {
+            font-size: 1.6rem;
+        }
     }
 }
 
